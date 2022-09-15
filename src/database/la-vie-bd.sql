@@ -25,15 +25,14 @@ DROP TABLE IF EXISTS `atendimentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `atendimentos` (
-  `data_atendimento` datetime DEFAULT NULL,
-  `observacao` varchar(1000) DEFAULT NULL,
-  `paciente_id` int DEFAULT NULL,
-  `psicologo_id` int DEFAULT NULL,
+  `data_atendimento` datetime NOT NULL,
+  `observacao` varchar(1000) TEXT,
+  `paciente_id` int NOT NULL,
+  `psicologo_id` int NOT NULL,
   KEY `paciente_id` (`paciente_id`),
   KEY `psicologo_id` (`psicologo_id`),
   CONSTRAINT `atendimentos_ibfk_1` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`paciente_id`),
-  CONSTRAINT `atendimentos_ibfk_2` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`paciente_id`),
-  CONSTRAINT `atendimentos_ibfk_3` FOREIGN KEY (`psicologo_id`) REFERENCES `psicologos` (`psicologo_id`)
+  CONSTRAINT `atendimentos_ibfk_2` FOREIGN KEY (`psicologo_id`) REFERENCES `psicologos` (`psicologo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

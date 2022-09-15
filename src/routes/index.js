@@ -6,6 +6,7 @@ const pacienteController = require('../controllers/pacienteController')
 const routes = express.Router();
 routes.get("/psicologos", psicologoController.listarPsicologo);
 routes.post("/psicologo/criar", psicologoController.cadastrarPsicologo);
+
 routes.get("/pacientes", pacienteController.listarPacientes);
 routes.post("/paciente/criar", pacienteController.cadastrarPaciente);
 
