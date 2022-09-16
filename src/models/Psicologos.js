@@ -5,27 +5,29 @@ const Psicologos = db.define(
   "Psicologos",
   {
     psicologo_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(20),
       primaryKey: true,
       autoIncrement: true,
-      allownull: false,
     },
     nome: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(150),
+      allowNull: false,
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
+      allowNull: false,
     },
     senha: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(20),
     },
     apresentacao: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(200),
     },
   },
   {
     tableName: "psicologos",
-  }
+    timestamps: false,
+  },
 );
 
 module.exports = Psicologos;
