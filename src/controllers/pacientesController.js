@@ -1,12 +1,19 @@
-const Pacientes = require("../models/Pacientes");
+const {Pacientes, Atendimentos} = require("../models");
 
 const pacientesController = {
     async listarPacientes(req, res){
         try {
-            
-        const Pacientes = await Pacientes.findAll();
+            const { page = 1, limit = 20 } = req.query;
+            const offset = parseInt(limit) * (parseInt(page) - 1);
 
-        return res.status(200).json(Pacientes);
+            let filter = {
+                limit: parseInt(limit),
+                offset
+            };
+
+            const pacientes = await Pacientes.findAll(filter);
+
+        return res.status(200).json(pacientes);
     }
     catch (error) {
         console.error(error);
@@ -50,7 +57,7 @@ const pacientesController = {
         try {
             const {id} = req.params;
             const {nome, email, idade} = req.body;
-            const exisrsUser = await Pacientes.count({
+            const existsUser = await Pacientes.count({
                 where: {
                     email
                 }
@@ -68,7 +75,7 @@ const pacientesController = {
                 },
                 {
                     where: {
-                        id
+                       paciente_id: id
                     },
                 }
             );

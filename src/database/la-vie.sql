@@ -39,8 +39,8 @@ CREATE TABLE `psicologos` (
   `psicologo_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nome` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `senha` varchar(25) NOT NULL,
-  `apresentacao` varchar(500) NOT NULL,
+  `senha` varchar(10) NOT NULL,
+  `apresentacao` varchar(200) NOT NULL,
 );
 
 LOCK TABLES `psicologos` WRITE;

@@ -18,10 +18,12 @@ const Psicologos = db.define(
       allowNull: false,
     },
     senha: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(10),
+      allowNull: false,
     },
     apresentacao: {
       type: DataTypes.STRING(200),
+      allowNull: false,
     },
   },
   {

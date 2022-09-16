@@ -3,16 +3,15 @@ const bcrypt = require("bcryptjs");
 
 const psicologosController = {
     async cadastrarPsicologo(req, res) {
-        try {
+            try {
             const { nome, email, senha, apresentacao } = req.body;
-            const novaSenha = bcrypt.hashSync(senha, 20);
+            const novaSenha = bcrypt.hashSync(senha, 10);
 
             if (!nome || !email || !senha || !apresentacao) {
-              return res.status(400).json("Preencha corretamente os campos obrigatórios");
+                return res.status(400).json("Preencha todos os campos corretamente");
             };
 
             const novoPsicologo = await Psicologos.create({ nome, email, senha: novaSenha, apresentacao });
-
             return res.status(201).json(novoPsicologo);
         }
         catch (error) {

@@ -1,3 +1,3 @@
 module.exports = {
-    key: "root1234",
+    key: "senha123",
 };
